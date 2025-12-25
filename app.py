@@ -11,8 +11,29 @@ st.set_page_config(
     page_title="PolyFarm AI",
     page_icon="🌾",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
+
+# ... (CSS remains same) ...
+
+# ... (Logic remains same) ...
+
+# --- FOOTER / VOICE BACKUP ---
+st.markdown("---")
+st.markdown("### 🎙️ AI Voice Agent", unsafe_allow_html=True)
+st.markdown("If the sidebar is closed, use this widget:", unsafe_allow_html=True)
+
+# Backup widget in main area (height sufficient for chat window)
+components.html("""
+    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+    <elevenlabs-convai agent-id="agent_7201kda16szbffnsemfp5nqa2j44"></elevenlabs-convai>
+    <style>
+        elevenlabs-convai { 
+            width: 100%; 
+            height: 500px;
+        }
+    </style>
+""", height=600)
 
 # STRICT GREEN & WHITE THEME
 st.markdown("""
