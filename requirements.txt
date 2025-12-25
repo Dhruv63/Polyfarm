@@ -9,3 +9,6 @@ chromadb
 pypdf
 elevenlabs
 requests
+pysqlite3-binary
+protobuf
+pydantic
