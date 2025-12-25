@@ -18,7 +18,7 @@ import logging
 
 # RAG Imports
 from langchain_google_vertexai import VertexAIEmbeddings, VertexAI
-from langchain_community.chains import RetrievalQA
+from langchain_classic.chains import RetrievalQA
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import Chroma
 from langchain_text_splitters import RecursiveCharacterTextSplitter
