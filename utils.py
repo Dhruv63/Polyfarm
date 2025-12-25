@@ -21,7 +21,7 @@ from langchain_google_vertexai import VertexAIEmbeddings, VertexAI
 from langchain.chains import RetrievalQA
 from langchain_community.document_loaders import PyPDFLoader
 from langchain_community.vectorstores import Chroma
-from langchain.text_splitter import RecursiveCharacterTextSplitter
+from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # --- 1. CLOUD AUTHENTICATION LOGIC (CRITICAL) ---
 # This block detects if we are on Streamlit Cloud and creates credentials.json dynamically

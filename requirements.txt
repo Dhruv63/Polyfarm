@@ -10,3 +10,4 @@ elevenlabs
 requests
 pysqlite3-binary
 protobuf
+langchain-text-splitters
