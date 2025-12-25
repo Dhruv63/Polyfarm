@@ -116,11 +116,25 @@ st.markdown("""
         box-shadow: 0 2px 4px rgba(0,0,0,0.05);
     }
 
-    /* Mobile Text Sizes */
-    @media (max-width: 768px) {
-        h1 { font-size: 2rem !important; }
-        h3 { font-size: 1.2rem !important; }
-        .stButton > button { padding: 1rem !important; font-size: 1.1rem !important; }
+    /* Aggressive Overrides */
+    html, body, [class*="css"] {
+        font-family: 'Helvetica Neue', sans-serif;
+    }
+    
+    /* Target the main Streamlit container directly */
+    .stApp {
+        background-color: #ffffff !important;
+        background-image: none !important;
+    }
+    
+    /* Hide the top header decoration */
+    header[data-testid="stHeader"] {
+        background-color: transparent !important;
+    }
+    
+    /* Force text colors */
+    .stMarkdown, .stMarkdown p, .stMarkdown h1, .stMarkdown h2, .stMarkdown h3 {
+        color: #1b5e20 !important;
     }
     </style>
 """, unsafe_allow_html=True)
