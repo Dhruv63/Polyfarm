@@ -225,6 +225,11 @@ components.html("""
     <elevenlabs-convai agent-id="agent_7201kda16szbffnsemfp5nqa2j44"></elevenlabs-convai>
     <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
     <style>
-        elevenlabs-convai { position: fixed; bottom: 10px; right: 10px; z-index: 9999; }
+        elevenlabs-convai { 
+            position: fixed; 
+            bottom: 20px; 
+            right: 20px; 
+            z-index: 100000;
+        }
     </style>
-""", height=100)
+""", height=550)
