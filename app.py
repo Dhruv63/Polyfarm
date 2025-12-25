@@ -217,39 +217,20 @@ with tab3:
                 response = utils.gov_agent_response(query)
                 st.info(response)
 
-# --- FOOTER / VOICE ---
-st.markdown("<br><hr>", unsafe_allow_html=True)
-# --- VOICE ASSISTANT (Fixed Overlay) ---
-# We use a CSS hack to make the iframe covering the widget overlay the entire screen
-# but allow clicks to pass through (pointer-events: none), except for the widget itself.
-components.html("""
-    <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
-    <elevenlabs-convai agent-id="agent_7201kda16szbffnsemfp5nqa2j44"></elevenlabs-convai>
-    <style>
-        /* The widget itself should capture clicks */
-        elevenlabs-convai { 
-            position: fixed; 
-            bottom: 20px; 
-            right: 20px; 
-            z-index: 999999;
-            pointer-events: auto;
-        }
-    </style>
-""", height=700)
-
-# CSS to force the iframe to be fixed and transparent
-st.markdown("""
-<style>
-    iframe[height="700"] {
-        position: fixed !important;
-        bottom: 0 !important;
-        right: 0 !important;
-        width: 100% !important;
-        height: 100% !important;
-        border: none !important;
-        z-index: 999999 !important;
-        pointer-events: none !important;
-        background: transparent !important;
-    }
-</style>
-""", unsafe_allow_html=True)
+# --- VOICE ASSISTANT (Sidebar Integration) ---
+with st.sidebar:
+    st.markdown("---")
+    st.markdown("### 🎙️ AI Voice Assistant", unsafe_allow_html=True)
+    st.markdown("Click below to talk to Dr. Bio", unsafe_allow_html=True)
+    
+    # We place the widget here with sufficient height
+    components.html("""
+        <script src="https://unpkg.com/@elevenlabs/convai-widget-embed" async type="text/javascript"></script>
+        <elevenlabs-convai agent-id="agent_7201kda16szbffnsemfp5nqa2j44"></elevenlabs-convai>
+        <style>
+            elevenlabs-convai { 
+                width: 100%; 
+                height: 500px;
+            }
+        </style>
+    """, height=520)
