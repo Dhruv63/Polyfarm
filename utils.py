@@ -96,6 +96,9 @@ def get_shops_data(cure_name):
         ]
     return shops
 
+# Alias for backward compatibility
+local_agent = get_shops_data
+
 # --- 4. TTS AGENT (Voice) ---
 def text_to_speech(text):
     # Try getting Key from Secrets (Cloud) OR .env (Local)
