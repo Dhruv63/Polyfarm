@@ -16,12 +16,12 @@ from elevenlabs.client import ElevenLabs
 from dotenv import load_dotenv
 import logging
 
-# RAG Imports
-from langchain_google_vertexai import VertexAIEmbeddings, VertexAI
-from langchain_classic.chains import RetrievalQA
-from langchain_community.document_loaders import PyPDFLoader
-from langchain_community.vectorstores import Chroma
-from langchain_text_splitters import RecursiveCharacterTextSplitter
+# RAG Imports - DISABLED FOR DEPLOYMENT
+# from langchain_google_vertexai import VertexAIEmbeddings, VertexAI
+# from langchain_classic.chains import RetrievalQA
+# from langchain_community.document_loaders import PyPDFLoader
+# from langchain_community.vectorstores import Chroma
+# from langchain_text_splitters import RecursiveCharacterTextSplitter
 
 # --- 1. CLOUD AUTHENTICATION LOGIC (CRITICAL) ---
 # This block detects if we are on Streamlit Cloud and creates credentials.json dynamically
@@ -134,43 +134,11 @@ def smart_orchestrator(image_bytes, mime_type="image/jpeg"):
         "audio": audio_bytes
     }
 
-# --- 5. GOV AGENT (RAG) ---
-@st.cache_resource
-def get_gov_agent_chain():
-    try:
-        # FIX for Cloud: Ensure directories work correctly
-        base_dir = os.path.dirname(os.path.abspath(__file__))
-        data_dir = os.path.join(base_dir, "data")
-        if not os.path.exists(data_dir):
-            return None
-        pdf_files = [os.path.join(data_dir, f) for f in os.listdir(data_dir) if f.endswith('.pdf')]
-        
-        if not pdf_files: return None
-            
-        documents = []
-        for pdf in pdf_files:
-            loader = PyPDFLoader(pdf)
-            documents.extend(loader.load())
-            
-        text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=100)
-        texts = text_splitter.split_documents(documents)
-        
-        embeddings = VertexAIEmbeddings(model_name="text-embedding-004")
-        db = Chroma.from_documents(texts, embeddings)
-        retriever = db.as_retriever(search_kwargs={"k": 3})
-        
-        llm = VertexAI(model_name="gemini-2.0-flash-exp", temperature=0.3)
-        
-        qa_chain = RetrievalQA.from_chain_type(llm, retriever=retriever)
-        return qa_chain
-    except Exception as e:
-        logger.error(f"Gov Agent Error: {e}")
-        return None
+# --- 5. GOV AGENT (RAG) - DISABLED FOR DEPLOYMENT ---
+# @st.cache_resource
+# def get_gov_agent_chain():
+#     ... (RAG code commented out)
 
 def gov_agent_response(query):
-    chain = get_gov_agent_chain()
-    if not chain: return "System Error: Knowledge base unavailable (Check 'data' folder for PDFs)."
-    try:
-        return chain.run(query)
-    except Exception as e:
-        return str(e)
+    """Placeholder - RAG disabled for deployment"""
+    return "Government Schemes RAG is temporarily disabled. Core features (Disease Diagnosis & Supply Chain) are fully functional. Please use the voice assistant for government scheme queries."
