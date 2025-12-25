@@ -1,14 +1,10 @@
 streamlit
 google-cloud-aiplatform
 langchain
-langchain-google-vertexai
 langchain-community
-geopy
-python-dotenv
+langchain-google-vertexai
 chromadb
 pypdf
+python-dotenv
 elevenlabs
 requests
-pysqlite3-binary
-protobuf
-pydantic
