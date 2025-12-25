@@ -8,3 +8,5 @@ pypdf
 python-dotenv
 elevenlabs
 requests
+pysqlite3-binary
+protobuf
