@@ -1,0 +1,11 @@
+streamlit
+google-cloud-aiplatform
+langchain
+langchain-google-vertexai
+langchain-community
+geopy
+python-dotenv
+chromadb
+pypdf
+elevenlabs
+requests

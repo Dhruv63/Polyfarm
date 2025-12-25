@@ -1,0 +1,36 @@
+[
+    {
+        "id": 1,
+        "name": "Kisan Seva Kendra",
+        "lat": 19.1150,
+        "lon": 72.8700,
+        "inventory": [
+            "Urea",
+            "Neem Oil",
+            "Mancozeb Fungicide",
+            "Myclobutanil"
+        ]
+    },
+    {
+        "id": 2,
+        "name": "Green Earth Agro",
+        "lat": 19.1200,
+        "lon": 72.8600,
+        "inventory": [
+            "DAP",
+            "Propiconazole",
+            "Organic Manure"
+        ]
+    },
+    {
+        "id": 3,
+        "name": "Mumbai Agri Hub",
+        "lat": 19.1100,
+        "lon": 72.8800,
+        "inventory": [
+            "Seeds",
+            "Sprayers",
+            "Copper Fungicide"
+        ]
+    }
+]
